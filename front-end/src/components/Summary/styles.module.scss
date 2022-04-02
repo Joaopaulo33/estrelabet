@@ -1,0 +1,65 @@
+.Container{
+    height:5rem;
+    h1{
+        color: var(--white);
+        padding: 5rem 8rem 0rem 8rem;
+    }
+}
+
+.listCompanies{
+    max-width: 1120px;
+    height:5rem;
+    margin-left: 8rem;
+    // pra ficar verticalmente alinhado ao centro
+    display: flex;
+    align-items: center;
+    color: white;
+    li{
+            list-style-type: circle;
+          
+    }
+    nav{
+        margin-left: 5rem;
+        height: 5rem;
+
+        a{
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            height: 5rem;
+            line-height: 5rem;
+            color:#a8a8b3;
+
+            transition: color 0.2s;
+
+            &:hover{
+                color: white;
+            }
+
+            &.active{
+                color: white;
+                font-weight: bold;
+            }
+            
+            & + a{
+                margin-left:2rem;
+            }
+    
+            
+        }
+    }
+    button{
+        font-size:1rem;
+        color: #FFF;
+        background: var(--blue-light);
+        border:0;
+        padding: 0 2rem;
+        border-radius:0.25rem;
+        height:3rem;
+        transition: filter 0.2s;
+
+        margin-left:auto;
+    }
+
+}
+
