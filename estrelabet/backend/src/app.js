@@ -15,9 +15,11 @@ async function createApp() {
   
     app.use((req,res,next)=>{
       res.header("Access-Control-Allow-Origin","*");
-      app.use(cors());
       next();
   })
+  
+  app.use(cors());
+
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
   app.use(express.static(path.join(__dirname, "../public")));

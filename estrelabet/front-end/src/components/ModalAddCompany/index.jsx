@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { api } from '../../services/api';
 import { Toast, ToastBody, ToastContainer, ToastHeader } from 'react-bootstrap';
+import {useHistory} from 'react-router-dom'
 
 function CreateInput(name, display) {
   const [value, setValue] = useState('');
@@ -25,23 +26,36 @@ export function ModalAddCompany() {
     show,
     setShow,
   };
+
+  const[loading, setLoading] = useState(false);
+  const history = useHistory();
   function handleCreateCompany(event) {
     event.preventDefault();
-    const newCompany = {};
-    inputs.forEach((input) => (newCompany[input.name] = input.value));
-    api
-      .post('/company', newCompany)
-      .then((response) => {
-        toast.setMessage('Deu Certo!');
-        toast.setBackground('success');
-        toast.setShow(true);
-      })
-      .catch((error) => {
-        toast.setMessage('Deu Merda!');
-        toast.setBackground('danger');
-        toast.setShow(true);
-      });
-  }
+    
+    if(!loading){
+      setLoading(true);
+      const newCompany = {};
+      inputs.forEach((input) => (newCompany[input.name] = input.value));
+      console.log(newCompany);
+      api
+        .post('/company', newCompany)
+        .then((response) => {
+          toast.setMessage('Empresa salva com sucesso');
+          toast.setBackground('success');
+          toast.setShow(true);
+          history.push('/');
+        })
+        .catch((error) => {
+          setLoading(false);
+          toast.setMessage('Não foi possível salvar empresa!');
+          toast.setBackground('danger');
+          toast.setShow(true);
+        });  
+        
+    }
+  
+    
+   }
   return (
     <div className="container">
       <div className="card">
@@ -53,6 +67,7 @@ export function ModalAddCompany() {
                 <div>
                   <label htmlFor={input.name}>{input.display}</label>
                   <input
+                    key={input.name}
                     type="text"
                     name={input.name}
                     onChange={(e) => input.setValue(e.target.value)}
@@ -73,7 +88,7 @@ export function ModalAddCompany() {
           className="align-items-center text-white border-0"
           bg={toast.background}
           show={show}
-          delay={3000}
+          delay={1000}
           autohide
           p
         >

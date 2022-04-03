@@ -1,6 +1,5 @@
 // import {logoImg} from '../../assets/logo.svg';
 import styles from './styles.module.scss'
-import logoImg from '../../assets/logo.jpg';
 import icone from '../../assets/icone.png';
 
 

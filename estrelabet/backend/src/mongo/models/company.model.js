@@ -1,9 +1,6 @@
 const { Schema } = require('mongoose');
 
 const company = new Schema({
-  _id: {
-    type: Schema.Types.ObjectId,
-  },
   name: {
     type: String,
     required: true,

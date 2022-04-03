@@ -33,23 +33,23 @@ async function getCompany(companyId) {
     };
   }
 }
-async function createCompany(req, res) {
+async function createCompany(companyData) {
 
   const newCompany = {
 
-    name: req.body.name,
-    cnpj: req.body.cnpj,
-    email: req.body.email,
-    telephone: req.body.telephone,
-    address: req.body.address,
+    name: companyData.name,
+    cnpj: companyData.cnpj,
+    email: companyData.email,
+    telephone: companyData.telephone,
+    address: companyData.address,
 
   };
-  
-  console.log("AAAAAAAAAAAAA",req.body.name);
 
   const company = await CompanyModel(newCompany)
     .save()
-    .catch(() => null);
+    .catch((error) =>{ console.log(error) ;
+    return null;
+    } );
 
   if (!company) {
     
@@ -60,8 +60,10 @@ async function createCompany(req, res) {
     };    
   } else {
     console.log('Empresa salva com sucesso');
-    res.redirect('/');
-  }
+    return{
+      code: 201,
+      message: 'Company saved',}  }
+    
 }
 
 module.exports = {
