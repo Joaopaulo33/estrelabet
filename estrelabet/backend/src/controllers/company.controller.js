@@ -4,8 +4,7 @@ function getAllCompanies(req, res) {
   // const companies = companyService.getAllCompanies();
   // console.log(companies.data);
   // res.status(companies.code).send(companies.message || companies.data);
-  res.send("hello");
-
+  res.send('hello');
 }
 function getOneCompany(req, res) {
   const { companyId } = req.params;
@@ -16,8 +15,8 @@ function createCompany(req, res) {
   const newCompany = companyService.createCompany();
   console.log(newCompany.data);
   console.log(newCompany.code);
-  console.log("criooou");
-//  res.status(newCompany.code).send(newCompany.message || newCompany.data);
+  console.log('criooou');
+  //  res.status(newCompany.code).send(newCompany.message || newCompany.data);
 }
 function editCompany(req, res) {}
 function deleteCompany(req, res) {}
@@ -28,5 +27,4 @@ module.exports = {
   createCompany,
   editCompany,
   deleteCompany,
-  
 };
