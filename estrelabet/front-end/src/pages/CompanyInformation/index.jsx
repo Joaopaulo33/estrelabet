@@ -10,11 +10,13 @@ const Page = ()=>{
   const [loading,setLoading]= useState(true)
   const [company,setCompany]= useState(undefined)
   const[collaborators,setCollaborators]= useState([]);
+  const [nameRouteCollaboratorInformations,  setRouteCompanyInformation ]= useState("")
+
 
 const {id} = useParams();
   useEffect(async() => {   
     await api.get('/company/'+id).then(response => {
-      console.log(response.data);
+      console.log(response.data,"COLABORADORES");
       setCompany(response.data);
    }).catch(
        error=>{
@@ -33,6 +35,16 @@ const {id} = useParams();
 
 let nameRouteCreateCollaborator = "/createCollaborator/" + id
 
+const handleCollaboratorInformation= (id)=>{
+  let nameRouteCollaboratorInformations= ('/collaboratorInformations/' + id);
+   setRouteCompanyInformation(nameRouteCollaboratorInformations);
+}
+
+
+
+
+
+
   return (
   <div> 
    <a href={nameRouteCreateCollaborator}>
@@ -41,23 +53,28 @@ let nameRouteCreateCollaborator = "/createCollaborator/" + id
   {loading ? (<div>Carregando</div>):(
     <div>
       {company ? (
-        <div>
-        <h1>{company.name}</h1>
-          <ol>
-          
-            {collaborators.map(collaborator=>{
-                return(
-                  <li>
-                    {collaborator.name}
-                  </li>
-                )
-            }
-
-          )
+        <div ClassName="companyInformations">
+            <h1>{company.name}</h1>
+            <h3>CNPJ:{company.cnpj}</h3>
+            <h3>Address:{company.address}</h3>
+            <h3>Telefone:{company.telephone}</h3>
+            <h3>E-mail:{company.email}</h3>
+            <h3>ID:{company._id}</h3>
+            <hr></hr>
+            <h1>Colaboradores:</h1>
+              <ol>
+                {collaborators.map(collaborator=>{
+                  return(
+                    <li onClick={()=>{handleCollaboratorInformation(collaborator._id)}}>
+                      <a href={nameRouteCollaboratorInformations}>
+                          {collaborator.name}
+                      </a>
+                    </li>
+                    )
+                })
+                }
               
-            }
-           
-          </ol>
+              </ol>
         </div>
       ) : (<div></div>)}
     </div> 

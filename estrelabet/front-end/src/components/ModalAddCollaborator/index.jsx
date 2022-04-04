@@ -51,7 +51,7 @@ export function ModalAddCollaborator() {
           toast.setMessage('Collaborador salvo com sucesso');
           toast.setBackground('success');
           toast.setShow(true);
-          history.push('/');
+          history.push('/companyInformation/'+id);
         })
         .catch((error) => {
           setLoading(false);

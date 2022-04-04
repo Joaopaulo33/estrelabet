@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 export function Summary(){
     const [loading,setLoading]= useState(true)
     const [companies,setCompanies]= useState(undefined)
-    const [routeCompanyInformation,setRouteCompanyInformation]= useState("")
+    const [nameRouteCompanyInformations,setRouteCompanyInformation]= useState("")
 
     useEffect(() => {   
 
@@ -25,8 +25,8 @@ export function Summary(){
     // const history = useHistory();
     
     const handleCompanyInformation= (id)=>{
-       let route= ('/companyInformation/' + id);
-        setRouteCompanyInformation(route);
+       let nameRouteCompanyInformations= ('/companyInformation/' + id);
+        setRouteCompanyInformation(nameRouteCompanyInformations);
     }
   
    
@@ -42,7 +42,7 @@ export function Summary(){
                                 return(
                             
                                     <li onClick={()=>{handleCompanyInformation(company._id)}}>
-                                        <a href={routeCompanyInformation}>
+                                        <a href={nameRouteCompanyInformations}>
                                                 <h3>{company.name}</h3>
 
                                         </a>

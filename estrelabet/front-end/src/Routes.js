@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import AddCompany from './pages/AddCompany'
 import AddCollaborator from './pages/AddCollaborator'
 import CompanyInformation from './pages/CompanyInformation'
+import CollaboratorInformation from './pages/CollaboratorInformations'
+
 
 
 export default ()=> {
@@ -21,6 +23,9 @@ export default ()=> {
       </Route>
       <Route exact path ="/companyInformation/:id">
         <CompanyInformation/>
+      </Route>
+      <Route exact path ="/collaboratorInformations/:id">
+        <CollaboratorInformation/>
       </Route>
     </Switch>
 
