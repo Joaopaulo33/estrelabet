@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 import{useEffect, useState} from 'react'
+import {ButtonCreateCompany} from '../../components/ButtonCreateCollaborator'
+
 
 
 
@@ -13,9 +15,7 @@ const {id} = useParams();
   useEffect(async() => {   
     await api.get('/company/'+id).then(response => {
       console.log(response.data);
-      setCompany(response.data)
-
-   
+      setCompany(response.data);
    }).catch(
        error=>{
            setLoading(false)
@@ -31,8 +31,13 @@ const {id} = useParams();
     
 },[])
 
+let nameRouteCreateCollaborator = "/createCollaborator/" + id
+
   return (
-  <div>  
+  <div> 
+   <a href={nameRouteCreateCollaborator}>
+          <ButtonCreateCompany/>
+    </a> 
   {loading ? (<div>Carregando</div>):(
     <div>
       {company ? (

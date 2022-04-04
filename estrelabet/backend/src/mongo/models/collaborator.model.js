@@ -1,9 +1,6 @@
 const { Schema } = require('mongoose');
 
 const collaborator = new Schema({
-  _id: {
-    type: Schema.Types.ObjectId,
-  },
   name: {
     type: String,
     required: true,

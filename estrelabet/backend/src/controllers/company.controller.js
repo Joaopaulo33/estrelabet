@@ -15,7 +15,6 @@ async function createCompany(req, res) {
   const newCompany = await companyService.createCompany(req.body);
   console.log(newCompany.data);
   console.log(newCompany.code);
-  console.log('criooou');
   res.status(newCompany.code).send(newCompany.message || newCompany.data);
 }
 async function editCompany(req, res) {}
