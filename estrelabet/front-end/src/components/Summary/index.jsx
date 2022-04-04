@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 import{api} from '../../services/api.js'
 import { useEffect, useState } from 'react';
-// import {useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 export function Summary(){
@@ -12,7 +12,6 @@ export function Summary(){
     useEffect(() => {   
 
          api.get('/company/').then(response => {
-            console.log(response.data);
             setCompanies(response.data)
             setLoading(false)
         }).catch(
@@ -34,29 +33,26 @@ export function Summary(){
        
             <div className={styles.Container}> 
                  <h1>Empresas Stars </h1>
-            {loading ? (<div>Carregando</div>) : (<div>
-                {companies ? (  
-                    <div className={styles.listCompanies}>
-                        <ol>
-                            {companies.map(company=>{
-                                return(
+            {loading ? (<div>Carregando</div>) : 
+                (<div>
+                    {companies ? (  
+                        <div className={styles.listCompanies}>
+                            <ol>
+                                {companies.map(company=>{
+                                    return(
+                                
+                                        <li onClick={()=>{handleCompanyInformation(company._id)}}>
+                                            <a href={nameRouteCompanyInformations}>
+                                                    <h3>{company.name}</h3>
+
+                                            </a>
+                                        </li>
+                                    )
+                                })}
                             
-                                    <li onClick={()=>{handleCompanyInformation(company._id)}}>
-                                        <a href={nameRouteCompanyInformations}>
-                                                <h3>{company.name}</h3>
-
-                                        </a>
-                                    </li>
-                                )
-                            })}
-                        
-                        </ol>   
-                    </div>) : (<div>Nenhuma empresa registrada</div>)}
-            </div>)}
-
-           
-             
-                 
+                            </ol>   
+                        </div>) : (<div>Nenhuma empresa registrada</div>)}
+                </div>)}                 
             </div>
          
     )

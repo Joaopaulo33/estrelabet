@@ -20,8 +20,6 @@ async function getOneCollaborator(req, res) {
 }
 async function createCollaborator(req, res) {
   const newCollaborator = await collaboratorService.createCollaborator(req.body);
-  console.log(newCollaborator.data);
-  console.log(newCollaborator.code);
   res.status(newCollaborator.code).send(newCollaborator.message || newCollaborator.data);
 }
 async function editCollaborator(req, res) {}

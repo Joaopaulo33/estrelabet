@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 import{useEffect, useState} from 'react'
+import styles from './styles.module.scss'
 
 
 
@@ -28,18 +29,18 @@ const {id} = useParams();
 
 
   return (
-  <div> 
+  <div className={styles.containerContent}> 
   {loading ? (<div>Carregando</div>):(
     <div>
       {collaborator ? (
-        <div ClassName="collaboratorInformations">
+        <div>
             <h1>{collaborator.name}</h1>
-            <h3>CNPJ:{collaborator.cpf}</h3>
-            <h3>Address:{collaborator.address}</h3>
-            <h3>Telefone:{collaborator.telephone}</h3>
-            <h3>E-mail:{collaborator.email}</h3>
-            <h3>ID:{collaborator._id}</h3>
-            <h3>ID empresa: {collaborator.companyId}</h3>
+            <h5><strong>CPF:</strong>{collaborator.cpf}</h5>
+            <h5><strong>Address:</strong>{collaborator.address}</h5>
+            <h5><strong>Telefone:</strong>{collaborator.telephone}</h5>
+            <h5><strong>E-mail:</strong>{collaborator.email}</h5>
+            <h5><strong>ID:</strong>{collaborator._id}</h5>
+            <h5><strong>ID empresa: </strong>{collaborator.companyId}</h5>
             <hr></hr>
         </div>
       ) : (<div></div>)}

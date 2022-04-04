@@ -36,7 +36,6 @@ export function ModalAddCompany() {
       setLoading(true);
       const newCompany = {};
       inputs.forEach((input) => (newCompany[input.name] = input.value));
-      console.log(newCompany);
       api
         .post('/company', newCompany)
         .then((response) => {

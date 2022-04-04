@@ -14,7 +14,6 @@ async function getCompanyCollaborators(companyId) {
       message: "Company's collaborators not found",
     };
   } else {
-    console.log("são esses",collaborators);
     return {
       
       code: 200,

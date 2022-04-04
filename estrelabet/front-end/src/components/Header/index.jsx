@@ -1,7 +1,6 @@
 // import {logoImg} from '../../assets/logo.svg';
 import styles from './styles.module.scss'
 import icone from '../../assets/icone.png';
-import {ButtonCreateCompany} from '../ButtonCreateCompany'
 
 
 

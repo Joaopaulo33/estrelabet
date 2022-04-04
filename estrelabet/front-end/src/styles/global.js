@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 
         --blue-light:#6933FF;
 
-        --text-title:#363F5F;
+        --text-title:rgb(229, 238, 149);;
         --text-body:#969CB3;
 
         --shape:#FFFFFF;
@@ -34,8 +34,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
- /* quando usuário estiver com uma tela até 1080px de largura vamos diminuir o fontsize para 93.75%
-    e quando tiver em uma menor que 720px vai diminuir pra 87.5 porcento */
+
     html{
     @media(max-width:1080px){
         font-size:93.75%;
@@ -50,16 +49,16 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-font-smooting: antialiased;
         }
     
-    /* Não pode colocar só no corpo porque os outros não importam automaticamente a fonte do corpo do htmel */
+    
     body, input,textarea,button{
 
         font-family: 'Poppins',sans-serif;
         font-weight: 400;
-        
-        
+    
     }
 
-    h1,h2,h3,h4,h4,h6,strong{
+    h1,h2,h3,h6,strong{
+        color: white;
         font-weight: 600;
     }
     
@@ -73,7 +72,6 @@ export const GlobalStyle = createGlobalStyle`
     a{
         text-decoration:none;
         cursor: pointer;
-
     }
 
 }

@@ -43,8 +43,6 @@ export function ModalAddCollaborator() {
       const newCollaborator = {};
       inputs.forEach((input) => (newCollaborator[input.name] = input.value));
       newCollaborator["companyId"]=id;
-      console.log(id,"aqui");
-      console.log(newCollaborator);
       api
         .post('collaborator/'+id , newCollaborator)
         .then((response) => {

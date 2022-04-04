@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 import{useEffect, useState} from 'react'
 import {ButtonCreateCompany} from '../../components/ButtonCreateCollaborator'
+import styles from './styles.module.scss'
 
 
 
@@ -16,7 +17,6 @@ const Page = ()=>{
 const {id} = useParams();
   useEffect(async() => {   
     await api.get('/company/'+id).then(response => {
-      console.log(response.data,"COLABORADORES");
       setCompany(response.data);
    }).catch(
        error=>{
@@ -51,17 +51,17 @@ const handleCollaboratorInformation= (id)=>{
           <ButtonCreateCompany/>
     </a> 
   {loading ? (<div>Carregando</div>):(
-    <div>
+    <div className={styles.containerContent}>
       {company ? (
-        <div ClassName="companyInformations">
+        <div>
             <h1>{company.name}</h1>
-            <h3>CNPJ:{company.cnpj}</h3>
-            <h3>Address:{company.address}</h3>
-            <h3>Telefone:{company.telephone}</h3>
-            <h3>E-mail:{company.email}</h3>
-            <h3>ID:{company._id}</h3>
+            <h5><strong>CNPJ:</strong>{company.cnpj}</h5>
+            <h5><strong>Address:</strong>{company.address}</h5>
+            <h5><strong>Telefone:</strong>{company.telephone}</h5>
+            <h5><strong>E-mail:</strong>{company.email}</h5>
+            <h5><strong>ID:</strong>{company._id}</h5>
             <hr></hr>
-            <h1>Colaboradores:</h1>
+            <h5>Colaboradores:</h5>
               <ol>
                 {collaborators.map(collaborator=>{
                   return(
