@@ -23,7 +23,7 @@ npm run dev
 ## Utilizando a aplicação
 ### Para que serve essa aplicação?
 
-Essa aplicação foi criada com o objetivo de permitir a criação e visualização das empresas e colaboradores que compões o Grupo Stars.
+Essa aplicação foi criada com o objetivo de permitir a criação e visualização das empresas e colaboradores que compõem o Grupo Stars.
 
 ### Como utilizar?
 
