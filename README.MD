@@ -25,7 +25,7 @@ Agora com pasta raiz do projeto aberta no cmd, basta iniciar o servidor Node e a
 
 npm run dev
 
-- Esse comanda irá iniciar as duas partes da aplicação ao mesmo tempo
+- Esse comando irá iniciar as duas partes da aplicação ao mesmo tempo.
 
 ## Utilizando a aplicação
 ### Para que serve essa aplicação?
