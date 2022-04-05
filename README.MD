@@ -15,15 +15,17 @@ Ao digitar a instrução acima, automaticamente ele irá baixar todas as depend�
 
 node_modules - que contêm os packages do npm que precisará para o projeto.
 
-+Crie na raiz da pasta "backend" um arquivo de nome “.env” e dentro dele digite
++ Crie na raiz da pasta "backend" um arquivo de nome “.env” e dentro dele digite
 MONGODB_CONNECTION='coloque aqui a url de conexão com o banco mongodb'
 Além disso, se quiser escolher a porta para conexão, digite abaixo do item mencionado 
 PORT=Número da porta
 
 ### Executando a Aplicação
-Agora na mesma tela do cmd, basta iniciar o servidor e a aplicação react usando o comando:
+Agora com pasta raiz do projeto aberta no cmd, basta iniciar o servidor Node e a aplicação React usando o comando:
 
 npm run dev
+
+- Esse comanda irá iniciar as duas partes da aplicação ao mesmo tempo
 
 ## Utilizando a aplicação
 ### Para que serve essa aplicação?
